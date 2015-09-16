@@ -27,6 +27,7 @@ Gem::Specification.new do |gem|
   gem.required_ruby_version      = '>= 2.0'
   gem.required_rubygems_version  = '>= 2.0'
   gem.requirements               = []
+  gem.add_dependency 'rdf',               '>= 1.1'
   gem.add_development_dependency 'rake',  '>= 10.4'
   gem.add_development_dependency 'rspec', '>= 3.3'
   gem.add_development_dependency 'yard' , '>= 0.8.7.6'
