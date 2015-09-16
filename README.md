@@ -1,8 +1,8 @@
 RDF::VCF
 ========
 
-This is an RDF.rb reader for Variant Call Format (VCF) files, widely used in
-bioinformatics.
+This is an [RDF.rb](https://github.com/ruby-rdf/rdf) reader plugin for
+Variant Call Format (VCF) files, widely used in bioinformatics.
 
 This project grew out of [BioHackathon 2014](http://2014.biohackathon.org/)
 [work](https://github.com/dbcls/bh14/wiki/On-The-Fly-RDF-converter) by
@@ -48,8 +48,8 @@ RDF (currently, N-Triples):
 Dependencies
 ============
 
-* JRuby
-* RDF.rb (>= 1.1)
+* [JRuby](http://jruby.org)
+* [RDF.rb](https://github.com/ruby-rdf/rdf) (>= 1.1)
 
 Mailing List
 ============
