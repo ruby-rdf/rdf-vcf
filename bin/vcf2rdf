@@ -7,7 +7,7 @@ ARGV.each do |pathname|
   writer = RDF::Writer.for(:nquads).new($stdout)
 
   RDF::VCF::Reader.open(pathname) do |reader|
-    reader.each_statement do |statement
+    reader.each_statement do |statement|
       writer << statement
     end
   end
