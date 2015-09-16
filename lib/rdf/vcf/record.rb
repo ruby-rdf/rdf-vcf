@@ -5,7 +5,7 @@ require 'jar/bzip2.jar'
 require 'digest/md5'
 require 'rdf'
 
-module VCF
+module RDF; module VCF
   ##
   # VCF file record.
   #
@@ -70,4 +70,4 @@ module VCF
       end
     end
   end # Record
-end # VCF
+end; end # RDF::VCF

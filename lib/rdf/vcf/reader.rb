@@ -4,7 +4,7 @@ require 'jar/bzip2.jar'
 
 require 'vcf/record'
 
-module VCF
+module RDF; module VCF
   ##
   # VCF file reader.
   #
@@ -85,7 +85,7 @@ module VCF
       true # TODO
     end
   end # Reader
-end # VCF
+end; end # RDF::VCF
 
 if $0 == __FILE__
   VCF::Reader.open('Homo_sapiens.vcf.gz') do |file|
