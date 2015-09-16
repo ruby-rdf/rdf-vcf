@@ -9,6 +9,8 @@ work by Raoul J.P. Bonnal and Francesco Strozzi, and was further developed
 during [BioHackathon 2015](http://2015.biohackathon.org/).
 
 Note: at present, the project requires JRuby due to the Java-based VCF parser.
+We hope to eventually substitute [Bio-vcf](https://github.com/pjotrp/bioruby-vcf)
+instead.
 
 Command-Line Interface (CLI)
 ============================
