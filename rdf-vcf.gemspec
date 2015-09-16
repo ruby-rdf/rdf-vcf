@@ -8,11 +8,11 @@ Gem::Specification.new do |gem|
   gem.name               = 'rdf-vcf'
   gem.homepage           = 'https://github.com/ruby-rdf/rdf-vcf'
   gem.license            = 'Public Domain' if gem.respond_to?(:license=)
-  gem.summary            = 'TODO: Gem summary goes here.'
-  gem.description        = 'TODO: Gem description goes here.'
+  gem.summary            = 'RDF.rb reader for Variant Call Format (VCF) files.'
+  gem.description        = gem.summary
 
-  gem.author             = 'Arto Bendiken'
-  gem.email              = 'arto@bendiken.net'
+  gem.authors            = ['Arto Bendiken', 'Raoul J.P. Bonnal', 'Francesco Strozzi']
+  gem.email              = 'public-rdf-ruby@w3.org'
 
   gem.platform           = Gem::Platform::RUBY
   gem.files              = %w(AUTHORS CREDITS README UNLICENSE VERSION) + Dir.glob('lib/**/*.rb')
