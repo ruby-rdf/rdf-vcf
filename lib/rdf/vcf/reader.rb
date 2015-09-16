@@ -48,6 +48,17 @@ module RDF; module VCF
     end
 
     ##
+    # @yield  [statement]
+    # @yieldparam  [RDF::Statement] statement
+    # @yieldreturn [void]
+    # @return [void]
+    def each_statement(&block)
+      self.each_record do |record|
+        record.to_rdf.each(&block)
+      end
+    end
+
+    ##
     # @yield  [record]
     # @yieldparam  [Record] record
     # @yieldreturn [void]
