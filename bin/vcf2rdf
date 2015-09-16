@@ -1,2 +1,14 @@
-#!/usr/bin/env ruby
+#!/usr/bin/env jruby
+$:.unshift(File.expand_path('../lib', __dir__))
 require 'rdf/vcf'
+
+ARGV.each do |pathname|
+  # TODO: support an --output=MIME option:
+  writer = RDF::Writer.for(:nquads).new($stdout)
+
+  RDF::VCF::Reader.open(pathname) do |reader|
+    reader.each_statement do |statement
+      writer << statement
+    end
+  end
+end
