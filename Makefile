@@ -1,13 +1,13 @@
 all: build
 
 build: Rakefile
-	bundle exec rake build
+	jruby -S bundle exec rake build
 
 check: Rakefile
-	bundle exec rake spec
+	jruby -S bundle exec rake spec
 
 install: build
-	bundle exec rake install
+	jruby -S bundle exec rake install
 
 clean:
 	rm -f *~ *.gem
