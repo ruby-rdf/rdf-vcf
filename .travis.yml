@@ -1,0 +1,18 @@
+# http://docs.travis-ci.com/user/languages/ruby/
+language: ruby
+bundler_args: --without debug
+script: rake spec
+env:
+  - CI=true
+rvm:
+  - 2.2
+  - 2.1
+  - 2.0
+  - jruby-head
+  - rbx-2
+cache: bundler
+matrix:
+  fast_finish: true
+  allow_failures:
+    - rvm: jruby-head
+    - rvm: rbx-2
