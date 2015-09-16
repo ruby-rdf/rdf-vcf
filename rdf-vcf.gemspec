@@ -17,7 +17,7 @@ Gem::Specification.new do |gem|
   gem.platform           = Gem::Platform::RUBY
   gem.files              = %w(AUTHORS CREDITS README UNLICENSE VERSION) + Dir.glob('lib/**/*.rb')
   gem.bindir             = %q(bin)
-  gem.executables        = %w(bin/vcf2rdf)
+  gem.executables        = %w(vcf2rdf)
   gem.default_executable = gem.executables.first
   gem.require_paths      = %w(lib)
   gem.extensions         = %w()
