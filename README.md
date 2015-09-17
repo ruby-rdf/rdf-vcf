@@ -10,9 +10,9 @@ This project grew out of [BioHackathon 2014](http://2014.biohackathon.org/)
 Strozzi](https://github.com/fstrozzi), and was further developed during
 [BioHackathon 2015](http://2015.biohackathon.org/).
 
-Note: at present, the project requires JRuby due to the Java-based VCF parser.
-We hope to eventually substitute [Bio-vcf](https://github.com/pjotrp/bioruby-vcf)
-instead.
+Note: at present, the project requires JRuby 9.0 (or newer) due to the
+Java-based VCF parser.  We hope to eventually substitute
+[Bio-vcf](https://github.com/pjotrp/bioruby-vcf) instead.
 
 Features
 ========
@@ -48,7 +48,7 @@ RDF (currently, N-Triples):
 Dependencies
 ============
 
-* [JRuby](http://jruby.org)
+* [JRuby](http://jruby.org) (>= 9.0)
 * [RDF.rb](https://github.com/ruby-rdf/rdf) (>= 1.1)
 
 Mailing List
