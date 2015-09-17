@@ -12,7 +12,12 @@ ARGV.each do |pathname|
 
   RDF::VCF::Reader.open(pathname) do |reader|
     reader.each_statement do |statement|
-      writer << statement
+      begin
+        writer << statement
+      rescue => error
+        # @see https://github.com/ruby-rdf/rdf/issues/210
+        warn error  # skip statements that cannot be serialized
+      end
     end
   end
 end
