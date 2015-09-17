@@ -30,7 +30,7 @@ module RDF; module VCF
       pathname = pathname.to_s
       @vcf_file = java.io.File.new(pathname)
       @tbi_file = java.io.File.new("#{pathname}.tbi")
-      @reader = VCFFileReader.new(@vcf_file, @tbi_file, true)
+      @reader = VCFFileReader.new(@vcf_file, @tbi_file, false)
     end
 
     ##
