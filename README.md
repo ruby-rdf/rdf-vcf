@@ -43,7 +43,14 @@ Command-Line Interface (CLI)
 The gem includes a CLI tool called `vcf2rdf` which transforms VCF files into
 RDF (currently, N-Triples):
 
-    vcf2rdf Homo_sapiens.vcf.gz
+    vcf2rdf your_vcf_file.vcf.gz
+
+files can be in plain text or bgzip compressed data 
+
+Notes
+-----
+
+Please create the tabix index by youself, in future this gem will [create the index](http://www.htslib.org/doc/tabix.html) automatically.
 
 Dependencies
 ============
