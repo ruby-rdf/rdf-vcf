@@ -36,8 +36,8 @@ module RDF; module VCF
     def initialize(pathname)
       pathname = pathname.to_s
       @vcf_file = java.io.File.new(pathname)
-      @tbi_file = java.io.File.new("#{pathname}.tbi")
-      @reader = VCFFileReader.new(@vcf_file, @tbi_file, true)
+      @tbi_file = java.io.File.new("#{pathname}.tbi") rescue nil
+      @reader = VCFFileReader.new(@vcf_file, @tbi_file, false)
     end
 
     ##
@@ -91,7 +91,7 @@ module RDF; module VCF
       start_pos  ||= 0
       end_pos    ||= java.lang.Integer::MAX_VALUE
       @reader.query(chromosome, start_pos, end_pos).each do |variant_context| # VariantContext
-        record = Record.new(variant_context, @reader)
+        record = Record.new(variant_context, self)
         block.call(record)
       end
     end
