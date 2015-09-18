@@ -1,6 +1,6 @@
 require 'java' # requires JRuby
-require 'jar/htsjdk-1.119.jar'
-require 'jar/bzip2.jar'
+require 'rdf/vcf/jar/htsjdk-1.139.jar'
+require 'rdf/vcf/jar/bzip2.jar'
 
 require 'digest/md5'
 require 'rdf'
