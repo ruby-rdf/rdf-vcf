@@ -1,6 +1,7 @@
 require 'java' # requires JRuby
 require 'rdf/vcf/jar/htsjdk-1.139.jar'
 require 'rdf/vcf/jar/bzip2.jar'
+require 'digest/md5'
 
 require 'rdf/vcf/record'
 
@@ -18,7 +19,7 @@ module RDF; module VCF
     REF_BASE_URI = 'http://rdf.ebi.ac.uk/resource/ensembl/%s/chromosome:%s:%s'.freeze
 
     def ref_base_uri #
-      @file_iri ||= RDF::URI(REF_BASE_URI % ["test", file_date, source])
+      @file_iri ||= RDF::URI(REF_BASE_URI % [reference_md5, file_date || "" , source || ""])
     end
 
 
@@ -105,20 +106,25 @@ module RDF; module VCF
 
     ##
     # @return [String]
-    def reference
-      @reference ||= @reader.getFileHeader().getMetaDataLine("reference").getKey
+    def reference()
+      @reference ||= @reader.getFileHeader().getMetaDataLine("reference").getKey rescue nil
     end
+
+    def reference_md5
+      ::Digest::MD5.hexdigest(reference|| "")
+    end
+
 
     ##
     # @return [String]
     def file_date
-      @file_date ||= @reader.getFileHeader().getMetaDataLine("fileDate").getKey
+      @file_date ||= @reader.getFileHeader().getMetaDataLine("fileDate").getKey rescue nil
     end
 
     ##
     # @return [String]
     def source
-      @source ||= @reader.getFileHeader().getMetaDataLine("source").getKey
+      @source ||= @reader.getFileHeader().getMetaDataLine("source").getKey rescue nil
     end
 
 
