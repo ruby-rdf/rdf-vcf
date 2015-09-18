@@ -15,6 +15,13 @@ module RDF; module VCF
   class Reader
     java_import 'htsjdk.variant.vcf.VCFFileReader'
 
+    REF_BASE_URI = 'http://rdf.ebi.ac.uk/resource/ensembl/%s/chromosome:%s:%s'.freeze
+
+    def ref_base_uri #
+      @file_iri ||= RDF::URI(REF_BASE_URI % ["test", file_date, source])
+    end
+
+
     ##
     # @param [#to_s] pathname
     def self.open(pathname, &block)
@@ -30,7 +37,7 @@ module RDF; module VCF
       pathname = pathname.to_s
       @vcf_file = java.io.File.new(pathname)
       @tbi_file = java.io.File.new("#{pathname}.tbi")
-      @reader = VCFFileReader.new(@vcf_file, @tbi_file, false)
+      @reader = VCFFileReader.new(@vcf_file, @tbi_file, true)
     end
 
     ##
@@ -66,7 +73,7 @@ module RDF; module VCF
     def each_record(&block)
       return unless @reader
       @reader.iterator.each do |variant_context| # VariantContext
-        record = Record.new(variant_context)
+        record = Record.new(variant_context, self)
         block.call(record)
       end
     end
@@ -84,7 +91,7 @@ module RDF; module VCF
       start_pos  ||= 0
       end_pos    ||= java.lang.Integer::MAX_VALUE
       @reader.query(chromosome, start_pos, end_pos).each do |variant_context| # VariantContext
-        record = Record.new(variant_context)
+        record = Record.new(variant_context, @reader)
         block.call(record)
       end
     end
@@ -95,6 +102,27 @@ module RDF; module VCF
     def has_position?(pos)
       true # TODO
     end
+
+    ##
+    # @return [String]
+    def reference
+      @reference ||= @reader.getFileHeader().getMetaDataLine("reference").getKey
+    end
+
+    ##
+    # @return [String]
+    def file_date
+      @file_date ||= @reader.getFileHeader().getMetaDataLine("fileDate").getKey
+    end
+
+    ##
+    # @return [String]
+    def source
+      @source ||= @reader.getFileHeader().getMetaDataLine("source").getKey
+    end
+
+
+
   end # Reader
 end; end # RDF::VCF
 
