@@ -45,12 +45,13 @@ RDF (currently, N-Triples):
 
     vcf2rdf your_vcf_file.vcf.gz
 
-files can be in plain text or bgzip compressed data 
+Input files can be either plain text or compressed by `bgzip`, as above.
 
 Notes
 -----
 
-Please create the tabix index by youself, in future this gem will [create the index](http://www.htslib.org/doc/tabix.html) automatically.
+Please create the [`tabix`](http://www.htslib.org/doc/tabix.html) index by
+youself. In future this gem will create the index automatically.
 
 Dependencies
 ============
