@@ -11,7 +11,7 @@ Strozzi](https://github.com/fstrozzi), and was further developed during
 [BioHackathon 2015](http://2015.biohackathon.org/).
 
 Note: at present, the project requires JRuby 9.0 (or newer) due to the
-Java-based VCF parser.  We hope to eventually substitute
+Java-based VCF parser. We hope to eventually substitute the pure-Ruby
 [Bio-vcf](https://github.com/pjotrp/bioruby-vcf) instead.
 
 Features
@@ -45,13 +45,14 @@ RDF (currently, N-Triples):
 
     vcf2rdf your_vcf_file.vcf.gz
 
-Input files can be either plain text or compressed by `bgzip`, as above.
+Input files can be either plain text VCF or else compressed by `bgzip`, as
+above.
 
 Notes
 -----
 
 Please create the [`tabix`](http://www.htslib.org/doc/tabix.html) index by
-youself. In future this gem will create the index automatically.
+youself. In the future, this gem will create the index automatically.
 
 Dependencies
 ============

@@ -3,5 +3,4 @@ TODO
 
 * (RE-CHECK) the examples reported in [VCFv4.1](https://github.com/samtools/hts-specs/blob/master/VCFv4.1.tex) and [VCFv4.2](https://github.com/samtools/hts-specs/blob/master/VCFv4.2.tex) can not be read by the java library [HTSJDK](http://samtools.github.io/htsjdk/)
 * verify the licence of [HTSJDK](http://samtools.github.io/htsjdk/) to see if it possible to directly distribute the jar files
-* update the htsjdk to version 1.139
 * build the index automatically with Tabix (compress with bgzip and index)
